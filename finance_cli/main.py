@@ -12,6 +12,14 @@ def zapisz_do_pliku():
     pass  # TODO: zapisz listę wydatków do pliku
 
 def dodaj_wydatek():
+    x = input("Podaj kwotę: ")
+    y = input("Podaj kategorię: ")
+    wydatek ={
+        "kwota": x,
+        "kategoria": y
+    }
+    wydatki.append(wydatek)
+    print("Dodano wydatek ✅")
     pass  # TODO: input użytkownika, dodaj słownik {"kwota": x, "kategoria": y, "data": dzisiaj}
 
 def pokaz_wydatki():
