@@ -4,6 +4,7 @@ import json, os
 from core import storage as st
 from main import wydatki
 from tabulate import tabulate # type: ignore
+import csv
 
 # =============== FUNKCJE PODSTAWOWE ===============
 def dodaj_wydatek(wydatki):
@@ -133,7 +134,8 @@ def wyswietl_statystyki(wydatki):
         print(tabulate(suma_po_kategorii.items(), headers=["Kategoria", "Suma"], tablefmt="fancy_grid"))
     
 
-    
+
+        
 
      
     

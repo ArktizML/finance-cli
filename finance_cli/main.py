@@ -20,6 +20,7 @@ def pokaz_menu():
     print("6. Edytuj wydatek")
     print("7. Sortuj wydatki")
     print("8. Wyświetl statystyki")
+    print("9. Eksportuj dane do CSV")
 
 # =============== PĘTLA GŁÓWNA ===============
 def main():
@@ -52,6 +53,8 @@ def main():
             ex.sortuj_wydatki(wydatki)
         elif wybor == "8":
             ex.wyswietl_statystyki(wydatki)
+        elif wybor == "9":
+            st.exportuj_do_csv(wydatki)
         else:
             print("Nieprawidłowa opcja.")
 
