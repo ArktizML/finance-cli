@@ -1,9 +1,9 @@
 # =============== IMPORTY ===============
 from datetime import datetime
 import json, os
-import storage as st
-from utils import *
+from core import storage as st
 from main import wydatki
+from tabulate import tabulate # type: ignore
 
 # =============== FUNKCJE PODSTAWOWE ===============
 def dodaj_wydatek(wydatki):
@@ -28,13 +28,15 @@ def dodaj_wydatek(wydatki):
     }
     wydatki.append(wydatek)
     print("Dodano wydatek ✅ —", wydatek)
-    st.zapisz_do_pliku()
+    st.zapisz_do_pliku(wydatki)
     print("Zapisano plik automatycznie ✅")
     return wydatek
 
 def pokaz_wydatki(wydatki):
+    dane = []
     for wydatek in wydatki:
-        print(f"""{wydatek["data"]} | {wydatek["kategoria"]} | {wydatek["kwota"]} zł""")
+        dane.append([wydatek["data"], wydatek["kategoria"], f"{wydatek["kwota"]} zł"])
+    print(tabulate(dane, headers=["Data", "Kategoria", "Kwota"], tablefmt="fancy_grid"))
 
 def sumuj_wydatki(wydatki):
     suma = 0.0
@@ -81,9 +83,57 @@ def edytuj_wydatek(wydatki):
         if i == int(edytuj):
             if kwota != "":
                 wydatek["kwota"] = float(kwota)
-                st.zapisz_do_pliku()
+                st.zapisz_do_pliku(wydatki)
             if kategoria != "":
                 wydatek["kategoria"] = kategoria
-                st.zapisz_do_pliku()
+                st.zapisz_do_pliku(wydatki)
         i+=1
     print("✅ Zaktualizowano")
+
+def sortuj_wydatki(wydatki):
+    while True:
+        po_czym = input("Podaj po czym chcesz posortować wydatki? (Kwota/Kategoria/Data): ")
+        if po_czym.lower() == "kwota" or po_czym.lower() == "kategoria" or po_czym.lower() == "data":
+            break
+        else:
+            print("Podałeś błędną odpowiedź.")
+    
+    posortowane = sorted(wydatki, key=lambda x: x[po_czym])
+    dane = []
+    for wydatek in posortowane:
+        dane.append([wydatek["data"], wydatek["kategoria"], f"{wydatek["kwota"]} zł"])
+    print(tabulate(dane, headers=["Data", "Kategoria", "Kwota"], tablefmt="fancy_grid"))
+
+def wyswietl_statystyki(wydatki):
+    if not wydatki:
+        print("Brak danych do analizy")
+    else:
+        suma = sum(wydatek["kwota"] for wydatek in wydatki)
+        srednia = suma / len(wydatki)
+        najw = max(wydatki, key=lambda x: x["kwota"])
+        najm = min(wydatki, key=lambda x: x["kwota"])
+        najwtxt = f"{najw["kwota"]} zł ({najw["kategoria"]}, {najw["data"]})"
+        najmtxt = f"{najm["kwota"]} zł ({najm["kategoria"]}, {najm["data"]})"
+
+        suma_po_kategorii = {}
+        for wydatek in wydatki:
+            kat= wydatek["kategoria"]
+            suma_po_kategorii[kat] = suma_po_kategorii.get(kat, 0) + wydatek["kwota"]
+
+        statystyka = {
+            "Liczba wydatków": len(wydatki),
+            "Suma całkowita": f"{suma} zł",
+            "Średni wydatek": f"{srednia} zł",
+            "Największy wydatek": najwtxt,
+            "Najmniejszy wydatek": najmtxt
+        }
+        print(tabulate(statystyka.items(), headers=["Metryka", "Wartość"], tablefmt="fancy_grid"))
+
+        print("\nWydatki po kategoriach: ")
+        print(tabulate(suma_po_kategorii.items(), headers=["Kategoria", "Suma"], tablefmt="fancy_grid"))
+    
+
+    
+
+     
+    

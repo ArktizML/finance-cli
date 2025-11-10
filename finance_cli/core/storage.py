@@ -1,15 +1,15 @@
 # =============== IMPORTY ===============
 from datetime import datetime
 import json, os
-import expenses as ex
-from utils import *
-from main import wydatki
 
 # =============== FUNKCJE PODSTAWOWE ===============
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(BASE_DIR, "data", "data.json")
+
 def wczytaj_z_pliku():
-    if os.path.exists("data.json"):
+    if os.path.exists(DATA_PATH):
         try:
-            with open("data.json", "r", encoding="utf-8") as file:
+            with open(DATA_PATH, "r", encoding="utf-8") as file:
                 return json.load(file)
         except FileNotFoundError:
             return []
@@ -17,6 +17,6 @@ def wczytaj_z_pliku():
         return []
             
 
-def zapisz_do_pliku():
-    with open("data.json", "w", encoding="utf-8") as file:
+def zapisz_do_pliku(wydatki):
+    with open(DATA_PATH, "w", encoding="utf-8") as file:
         json.dump(wydatki, file, ensure_ascii=False, indent=4)

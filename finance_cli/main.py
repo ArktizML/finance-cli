@@ -1,9 +1,10 @@
 # =============== IMPORTY ===============
 from datetime import datetime
 import json, os
-import storage as st
-import expenses as ex
-import utils as ut
+from core import storage as st
+from core import expenses as ex
+from core import utils as ut
+from tabulate import tabulate # type: ignore
 
 # =============== GLOBALNE DANE ===============
 wydatki = []  # lista słowników
@@ -17,6 +18,8 @@ def pokaz_menu():
     print("4. Zapisz i wyjdź")
     print("5. Filtruj po kategorii")
     print("6. Edytuj wydatek")
+    print("7. Sortuj wydatki")
+    print("8. Wyświetl statystyki")
 
 # =============== PĘTLA GŁÓWNA ===============
 def main():
@@ -37,7 +40,7 @@ def main():
         elif wybor == "3":
             ex.sumuj_wydatki(wydatki)
         elif wybor == "4":
-            st.zapisz_do_pliku()
+            st.zapisz_do_pliku(wydatki)
             print("Zapisano. Do zobaczenia!")
             break
         elif wybor == "5":
@@ -45,6 +48,10 @@ def main():
             ex.filtruj_po_kategorii(wydatki, kategoria.lower())
         elif wybor == "6":
             ex.edytuj_wydatek(wydatki)
+        elif wybor == "7":
+            ex.sortuj_wydatki(wydatki)
+        elif wybor == "8":
+            ex.wyswietl_statystyki(wydatki)
         else:
             print("Nieprawidłowa opcja.")
 
