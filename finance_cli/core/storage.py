@@ -2,6 +2,7 @@
 from datetime import datetime
 import json, os
 import csv
+import matplotlib.pyplot as plt
 
 # =============== FUNKCJE PODSTAWOWE ===============
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +26,7 @@ def zapisz_do_pliku(wydatki):
 def exportuj_do_csv(wydatki):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     DATA_PATH = os.path.join(BASE_DIR, "data", f"raport_{datetime.now().strftime("%Y-%m-%d")}.csv")
+    WYKRES_PATH = os.path.join(BASE_DIR, "data", f"wykres_{datetime.now().strftime("%Y-%m-%d")}.png")
 
     wczytaj_z_pliku()
     
@@ -33,7 +35,24 @@ def exportuj_do_csv(wydatki):
         obiekt_writer.writeheader()       
         for wydatek in wydatki:
             obiekt_writer.writerow(wydatek)
-    print("✅ Dane wyeksportowane do export.csv")
+    
+    suma_po_kategorii = {}
+
+    for wydatek in wydatki:
+        kat= wydatek["kategoria"]
+        suma_po_kategorii[kat] = suma_po_kategorii.get(kat, 0) + wydatek["kwota"]
+
+    kategorie = list(suma_po_kategorii.keys())
+    kwoty = list(suma_po_kategorii.values())
+    fig, ax = plt.subplots()
+    plt.bar(kategorie, kwoty)
+    ax.set_title("Wydatki wg. kategorii")
+    ax.set_xlabel("Kategoria")
+    ax.set_ylabel("Kwota [zł]")
+    plt.savefig(WYKRES_PATH)
+
+    print("✅ Dane wyeksportowane")
+    print("✅ Utworzono i zapisano wykres")
 
 # def importuj_z_csv():
 #     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

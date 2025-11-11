@@ -4,6 +4,7 @@ import json, os
 from core import storage as st
 from core import expenses as ex
 from core import utils as ut
+from core import math_utils as mu
 from tabulate import tabulate # type: ignore
 
 # =============== GLOBALNE DANE ===============
@@ -21,6 +22,7 @@ def pokaz_menu():
     print("7. Sortuj wydatki")
     print("8. Wyświetl statystyki")
     print("9. Eksportuj dane do CSV")
+    print("10. Pokaż aktualny wykres wydatków")
 
 # =============== PĘTLA GŁÓWNA ===============
 def main():
@@ -55,6 +57,8 @@ def main():
             ex.wyswietl_statystyki(wydatki)
         elif wybor == "9":
             st.exportuj_do_csv(wydatki)
+        elif wybor == "10":
+            ut.rysuj_wykres(wydatki)
         else:
             print("Nieprawidłowa opcja.")
 
