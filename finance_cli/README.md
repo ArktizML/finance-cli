@@ -20,7 +20,7 @@ Dodatkowo generuje **raporty CSV** i **wykresy wydatków** w oparciu o dane uży
 ---
 
 ## 🗂️ Struktura projektu
-
+```bash
 finance_cli/
 │
 ├── core/
@@ -35,34 +35,39 @@ finance_cli/
 ├── main.py # główny plik aplikacji CLI
 ├── README.md # dokumentacja projektu
 └── requirements.txt # wymagane biblioteki
-
+```
 ---
 
 ## ⚙️ Instalacja i uruchomienie
 
 1. **Sklonuj repozytorium:**
+    ```bash
     git clone https://github.com/ArktizML/finance_cli.git
     cd finance_cli
 
 2. **Utwórz środowisko wirtualne (zalecane):**
+    ```bash
     python -m venv venv
     source venv/bin/activate   # Linux / Mac
     venv\Scripts\activate      # Windows
 
 3. **Zainstaluj biblioteki:**
+    ```bash
     pip install -r requirements.txt
 
 4. **Uruchom aplikację:**
+```bash
 python main.py
-
+```
 
 ## 🧮 Przykładowe dane
+```bash
 Data	Kategoria	Kwota
 2025-11-06 12:16:18	woda	15.0
 2025-11-06 12:16:43	kebab	30.0
 2025-11-06 12:16:48	leki	100.0
 2025-11-06 12:38:18	fryzjer	50.0
-
+```
 ## 📊 Statystyki i wykresy
 Aplikacja automatycznie oblicza:
 - Suma wszystkich wydatków
@@ -79,12 +84,13 @@ raport_<data>.csv
 
 Przykład zawartości:
 
+```bash
 data,kategoria,kwota
 2025-11-06 12:16:18,woda,15.0
 2025-11-06 12:16:38,cola,20.0
 2025-11-06 12:16:43,kebab,30.0
 2025-11-06 12:16:48,leki,100.0
-
+```
 
 ## 🧠 Technologie i biblioteki
 - Python 3.10+
