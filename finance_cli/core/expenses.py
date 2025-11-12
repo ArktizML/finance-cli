@@ -64,21 +64,14 @@ def edytuj_wydatek(wydatki):
     while True:
         try:
             edytuj = int(input("Który indeks chcesz edytować?: "))
-        except:
-            print("Błędna kwota")
-            edytuj_wydatek(wydatki)
-    
-        if edytuj <= 0 or edytuj >= max_i:
-           print("Podałeś zły indeks! Spróbuj ponownie!")
-        else:
-            break
-    while True:
-        try:
-            kwota = float(input("Podaj nową kwotę (enter = nie zmieniaj): "))
-            break
-        except:
-            print("Podałeś błędną kwotę.") 
+            if edytuj <= 0 or edytuj >= max_i:
+                print("Podałeś zły indeks! Spróbuj ponownie!")
+            else:
+                break
+        except ValueError:
+            print("Błędny indeks - wpisz numer!")
 
+    kwota = input("Podaj nową kwotę (enter = nie zmieniaj): ")
     kategoria = input("Podaj nową kategorię (enter = nie zmieniaj): ")
     for wydatek in wydatki:
         if i == int(edytuj):
