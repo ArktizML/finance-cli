@@ -56,13 +56,6 @@ finance_cli/
 python main.py
 
 
-## 🧮 Przykładowe dane
-Data	Kategoria	Kwota
-2025-11-06 12:16:18	woda	15.0
-2025-11-06 12:16:43	kebab	30.0
-2025-11-06 12:16:48	leki	100.0
-2025-11-06 12:38:18	fryzjer	50.0
-
 ## 📊 Statystyki i wykresy
 Aplikacja automatycznie oblicza:
 - Suma wszystkich wydatków
