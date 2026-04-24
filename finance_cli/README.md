@@ -92,6 +92,3 @@ data,kategoria,kwota
 Projekt archiwalny, pozostawiony jako przykład czystego kodu proceduralnego w Pythonie.
 Docelowo zastąpiony będzie nową wersją napisaną obiektowo (OOP) z użyciem API i modułu AI.
 
-
-## 📜 Licencja
-Ten projekt jest udostępniany na licencji MIT – możesz go dowolnie modyfikować i rozwijać.
