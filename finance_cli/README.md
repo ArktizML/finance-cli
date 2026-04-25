@@ -53,6 +53,7 @@ finance_cli/
     pip install -r requirements.txt
 
 4. **Uruchom aplikację:**
+
 python main.py
 
 
