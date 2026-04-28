@@ -44,7 +44,7 @@ finance_cli/
     git clone https://github.com/ArktizML/finance_cli.git
     cd finance_cli
 
-2. **Utwórz środowisko wirtualne (zalecane):**
+2. **Utwórz środowisko wirtualne:**
     python -m venv venv
     source venv/bin/activate   # Linux / Mac
     venv\Scripts\activate      # Windows
