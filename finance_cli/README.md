@@ -13,7 +13,7 @@ Dodatkowo generuje **raporty CSV** i **wykresy wydatków** w oparciu o dane uży
 ✅ Filtrowanie wydatków po kategoriach  
 ✅ Sortowanie po kwocie, dacie lub kategorii  
 ✅ Wyświetlanie szczegółowych statystyk.
-✅ Eksport danych do pliku `.csv`  
+✅ Eksport danych do pliku `.csv`.
 ✅ Automatyczne generowanie wykresu słupkowego z wykorzystaniem `matplotlib`  
 ✅ Trwałe zapisywanie danych w pliku `data.json`
 
