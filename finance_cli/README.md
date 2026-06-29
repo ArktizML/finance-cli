@@ -74,7 +74,7 @@ raport_<data>.csv
 Przykład zawartości:
 
 data,kategoria,kwota
-2025-11-06 12:16:18,woda,15.0
+2025-11-06 12:16:18,woda,5.0
 2025-11-06 12:16:38,cola,20.0
 2025-11-06 12:16:43,kebab,30.0
 2025-11-06 12:16:48,leki,150.0
