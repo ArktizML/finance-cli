@@ -61,7 +61,7 @@ python main.py
 Aplikacja automatycznie oblicza:
 - Suma wszystkich wydatków
 - Średnia kwota
-- Największy i najmniejszy wydatek
+- Największy oraz najmniejszy wydatek
 - Sumy wydatków według kategorii
 - Po wybraniu opcji 10. Pokaż aktualny wykres wydatków — otwiera się okno z wykresem słupkowym.
 - Przy eksporcie danych (opcja 9) tworzony jest również plik wykres_<data>.png.
