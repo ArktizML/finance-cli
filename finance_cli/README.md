@@ -9,8 +9,8 @@ Dodatkowo generuje **raporty CSV** i **wykresy wydatków** w oparciu o dane uży
 ## 📌 Funkcjonalności
 
 ✅ Dodawanie nowych wydatków (data, kategoria, kwota)  
-✅ Edycja istniejących wydatków  
-✅ Filtrowanie wydatków po kategoriach  
+✅ Edycja istniejących wydatków,
+✅ Filtrowanie wydatków po kategoriach,  
 ✅ Sortowanie po kwocie, dacie lub kategorii  
 ✅ Wyświetlanie szczegółowych statystyk.
 ✅ Eksport danych do pliku `.csv`.
