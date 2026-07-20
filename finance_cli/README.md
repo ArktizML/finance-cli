@@ -15,7 +15,7 @@ Dodatkowo generuje **raporty CSV** i **wykresy wydatków** w oparciu o dane uży
 ✅ Wyświetlanie szczegółowych statystyk.
 ✅ Eksport danych do pliku `.csv`.
 ✅ Automatyczne generowanie wykresu słupkowego z użyciem biblioteki `matplotlib`  
-✅ Trwałe zapisywanie danych w pliku `data.json`
+✅ Trwałe zapisywanie danych do pliku `data.json`
 
 ---
 
